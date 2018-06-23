@@ -19,7 +19,7 @@ class Application
       else
         @@cart.each {|cart_item| resp.write "#{cart_item}\n"}
       end
-    elsif rep.path.match(/add/)
+    elsif req.path.match(/add/)
       add_item = req.params["item"]
       @@cart << add_item unless !@@items.include?(add_item)
       resp.write "added #{add_item}"
