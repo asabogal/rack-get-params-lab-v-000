@@ -1,3 +1,4 @@
+require 'pry'
 class Application
 
   @@items = ["Apples","Carrots","Pears"]
@@ -22,6 +23,7 @@ class Application
       end
     elsif req.path.match(/add/)
       add_item = req.params["item"]
+      binding.pry
       @@cart << add_item unless !@@items.include?(add_item)
       resp.write "added #{add_item}"
     else
