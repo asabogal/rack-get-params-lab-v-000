@@ -21,7 +21,7 @@ class Application
       end
     elsif rep.path.match(/add/)
       add_item = req.params["item"]
-      @@cart << add_item unless @@cart.include?(add_item)
+      @@cart << add_item unless !@@items.include?(add_item)
       resp.write "added #{add_item}"
     else
       resp.write "Path Not Found"
